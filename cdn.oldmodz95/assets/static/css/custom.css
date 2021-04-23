@@ -1,0 +1,13 @@
+.bg-gradient-danger {
+    background-color: #f53b57;
+    background-image: linear-gradient(135deg, #f53b57 0%, #e90202 100%);
+}
+
+@media only screen and (max-width: 1026px) {
+	.hiddable {
+		display:none!important;
+	}
+	.displayable {
+		display:block!important;
+	}
+}
