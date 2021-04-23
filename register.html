@@ -1,0 +1,930 @@
+		<!DOCTYPE html>
+<html lang="fr">
+	
+	<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+	<head>
+			<title>ProtonDev - Authentification</title>
+			<meta content="text/html; charset=UTF-8" />
+			<meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+			<meta name="title" content="ProtonDev">
+			<meta name="Description" content="Open Source Login Register Developped By ProtonDev">
+			<meta name="Content-Type" content="UTF-8">
+			<meta name="Subject" content="ProtonDev">
+			<meta name="Copyright" content="ProtonDev">
+			<meta name="Identifier-Url" content="index.html">
+			<meta name="Reply-To" content="discord.gg/3t2568W">
+			<meta name="Revisit-After" content="7 days">
+			<meta name="Robots" content="all">
+			<meta name="Rating" content="general">
+			<meta name="Distribution" content="global">
+			<meta name="Geography" content="Paris, FRANCE">
+			<meta name="Category" content="internet">
+			<meta name="DC.Content-Type" content="UTF-8">
+			<meta name="DC.Description" content="Open Source Login Register Developped By ProtonDev">
+			<meta name="DC.Subject" content="ProtonDev">
+			<meta name="DC.Copyright" content="ProtonDev">
+			<meta name="DC.Identifier-Url" content="index.html">
+			<meta name="DC.Reply-To" content="discord.gg/3t2568W">
+			<meta name="DC.Revisit-After" content="7 days">
+			<meta name="DC.Robots" content="all">
+			<meta name="DC.Rating" content="general">
+			<meta name="DC.Distribution" content="global">
+			<meta name="DC.Geography" content="Paris, FRANCE">
+			<meta name="DC.Category" content="internet">
+			<link rel="icon" href="./cdn.oldmodz95/assets/images/logo4.png" />
+			<link href="./cdn.oldmodz95/assets/sbuikitpro/css/styles.css" rel="stylesheet" />
+			<link rel="icon" type="image/x-icon" href="./cdn.oldmodz95/assets/sbuikitpro/assets/img/favicon.png" />
+			<script data-search-pseudo-elements defer src="./cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/js/all.min.js" crossorigin="anonymous"></script>
+			<script src="./cdnjs.cloudflare.com/ajax/libs/feather-icons/4.24.1/feather.min.js" crossorigin="anonymous"></script>
+			<link rel="stylesheet" href="./cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+		</head>
+	<body>
+		<style>
+			html {
+			  scroll-behavior: smooth;
+			}
+				
+			.col {
+				line-height: 1!important;
+			}
+			
+			.bg-login-image {
+				background: url(./cdn.oldmodz95/assets/images/beatmaklogin.jpg)!important;
+				background-position: center!important;
+				background-size: cover!important;
+			}
+			
+			.navbar-marketing .navbar-nav .nav-item .nav-link {
+				font-weight: 300;
+			}
+			
+			.dropdown-header {
+				letter-spacing:normal!important;
+				font-size: 0.8rem!important;
+			}
+			
+			.title {
+				font-family: 'Poppins';
+				font-weight: 600!important;
+				font-size: 26px!important;
+				margin-top: -70px!important;
+				color:black;
+			}
+			
+			@media only screen and (max-width:982px) { 
+				#app-cover {
+					width:100%!important;
+				}
+			}
+			
+			@media only screen and (max-width:540px) { 
+				.pc {
+					display:none;
+				}
+				.advice {
+					display:block!important;
+				}
+			}
+			
+			.rtrack {
+				display: flex;
+				height: 66px;
+				cursor: pointer;
+				align-items: center;
+				background: #eff4f7;
+				border-radius:6px;
+			}
+			
+			.rtrack:hover {
+				background-color: #000000a8!important;
+			}
+			
+			.obtain {
+				color:#bfbfbf!important;
+				cursor:pointer;
+			}
+			
+			.obtain:hover {
+				color:white!important;
+			}
+			
+			.act {
+				color:white!important;
+			}
+			
+			.rnum {
+				font-size: 13px;
+				font-weight: 500;
+				color: #707070;
+				text-align: center;
+			}
+			
+			.rav {
+				padding: 0;
+			}
+			
+			.rtop {
+				font-size: 36px;
+				font-family: 'Poppins';
+				font-weight:600;
+			}
+			
+			.pop {
+				font-family: 'Poppins';
+				    letter-spacing: .2px;
+					-webkit-font-smoothing: antialiased;
+					-moz-osx-font-smoothing: grayscale;
+			}
+			
+			.rfilt {
+				margin-bottom: 20px;
+				font-size: 16px;
+				font-weight: 600;
+				text-transform: uppercase;
+				letter-spacing: normal;
+			}
+			
+			.rhead {
+				background-color:#4a0b0b;
+				border-bottom: 1px solid #f60d49 !important;
+			}
+			
+			.rtitle {
+				font-size: 16px;
+				font-weight: 600;
+				color: black;
+				white-space: nowrap;
+				text-overflow: ellipsis;
+				overflow: hidden;
+				display: inline-block;
+				width: 100%;
+			}
+			
+			.ud:hover {
+				text-decoration: underline;
+			}
+			
+			.rartistb {
+				white-space: nowrap;
+				text-overflow: ellipsis;
+				overflow: hidden;
+				margin-right: 4px;
+				font-size: 13px;
+				font-weight: 400;
+			}
+			
+			.rartist {
+				font-size: 13px;
+				font-weight: 400;
+			}
+			
+			.rtag {
+				align-items: center;
+				padding: 6px 16px;
+				margin-right: 10px;
+				overflow: hidden;
+				color: #676767;
+				border: 1px solid hsl(0deg 0% 0% / 25%);
+				border-radius: 15px;
+				font-size: 12px;
+				font-weight: 500;
+			}
+			
+			.btn-buy {
+				background-color: #f50d49ba;
+				border-color: #f50d49ba;
+				color:white;
+			}
+			
+			.btn-buy:hover {
+				background-color: #a00029d1;
+				border-color: #a00029d1;
+				color:white;
+			}
+			
+			.btn-outline-buy {
+				border-color: #f50d49;
+				color:#f50d49;
+			}
+			
+			.btn-outline-buy:hover {
+				border-color: #f50d49;
+				color:#f50d49;
+			}
+			
+			.btn-outline-buy:focus {
+				outline: 0;
+				box-shadow: 0 0 0 0.2rem rgb(74 11 11);
+			}
+			
+			.dropdown-toggle::after {
+				display: inline-block;
+				margin-left: 0.255em;
+				vertical-align: 0.255em;
+				content: "";
+				border-top: 0;
+				border-right: 0;
+				border-bottom: 0;
+				border-left: 0;
+			}
+			
+			.btn-transparent-light:hover, .btn-transparent-light:active {
+				background-color: transparent!important;
+				border-color: transparent!important;
+			}
+			
+			.rftitre {
+				padding: 0 0 12px;
+				font-size: 17px;
+				font-weight: 600;
+			}
+			
+			.rpl::placeholder {
+				color: #f50d49;
+			}
+			
+			
+			@media (min-width: 1232px) {
+				.d-1, .d-2, .d-3 {
+					display:block!important;
+				}
+			}
+			
+			@media (min-width: 1453px) {
+				.d-4 {
+					display:block!important;
+				}
+			}
+			
+			@media (min-width: 1676px) {
+				.d-5 {
+					display:block!important;
+				}
+			}
+			
+			@media (min-width: 1920px) {
+				.d-6 {
+					display:block!important;
+				}
+			}
+			
+			#app-cover
+			{
+				/*position: absolute;
+				top: 50%;
+				right: 0;
+				left: 0;
+				width: 430px;*/
+				height: 100px;
+				/*margin: -4px auto;*/
+			}
+
+			/*#bg-artwork
+			{
+				position: fixed;
+				top: -30px;
+				right: -30px;
+				bottom: -30px;
+				left: -30px;
+				background-image: url("https://raw.githubusercontent.com/himalayasingh/music-player-1/master/img/_1.jpg");
+				background-repeat: no-repeat;
+				background-size: cover;
+				background-position: 50%;
+				filter: blur(40px);
+				-webkit-filter: blur(40px);
+				z-index: 1;
+			}*/
+
+			/*#bg-layer
+			{
+				position: fixed;
+				top: 0;
+				right: 0;
+				bottom: 0;
+				left: 0;
+				background-color: #fff;
+				opacity: 0.51;
+				z-index: 2;
+			}*/
+
+			#player
+			{
+				position: relative;
+				z-index: 3;
+			}
+
+			#player-track
+			{
+				padding: 13px 22px 10px 184px;
+				background-color: #fff7f7;
+				transition: 0.3s ease top;
+				z-index: 1;
+			}
+
+			#player-track.active
+			{
+				top: -92px;
+			}
+
+			#album-name
+			{
+				color: #54576f;
+				font-size: 17px;
+				font-weight: bold;
+			}
+
+			#track-name
+			{
+				color: #acaebd;
+				font-size: 13px;
+				margin: 2px 0 13px 0;
+			}
+
+			#track-time
+			{
+				height: 12px;
+				margin-bottom: 3px;
+				overflow: hidden;
+			}
+
+			#current-time
+			{
+				float: left;
+			}
+
+			#track-length
+			{
+				float: right;
+			}
+
+			#current-time, #track-length
+			{
+				color: transparent;
+				font-size: 11px;
+				background-color: #fff;
+				border-radius: 10px;
+				transition: 0.3s ease all;
+			}
+
+			#track-time.active #current-time, #track-time.active #track-length
+			{
+				color: #f86d92;
+				background-color: transparent;
+			}
+
+			#s-area, #seek-bar
+			{
+				position: relative;
+				height: 4px;
+				border-radius: 4px;
+			}
+
+			#s-area
+			{
+				background-color:#ffe8ee;
+				cursor: pointer;
+			}
+
+			#ins-time
+			{
+				position: absolute;
+				top: -29px;
+				color: #fff;
+				font-size: 12px;
+				white-space: pre;
+				padding: 5px 6px;
+				border-radius: 4px;
+				display:none;
+			}
+
+			#s-hover
+			{
+				position: absolute;
+				top: 0;
+				bottom: 0;
+				left: 0;
+				opacity: 0.2;
+				z-index: 2;
+			}
+
+			#ins-time, #s-hover
+			{
+				background-color: #3b3d50;
+			}
+
+			#seek-bar
+			{
+				content: '';
+				position: absolute;
+				top: 0;
+				bottom: 0;
+				left: 0;
+				width: 0;
+				background-color: #fd6d94;
+				transition: 0.2s ease width;
+				z-index: 1;
+			}
+
+			#player-content
+			{
+				position: relative;
+				height: 100%;
+				background-color: #fff;
+				box-shadow: 0 0px 20px #656565;
+				border-radius: 15px;
+				z-index: 2;
+			}
+
+			#album-art
+			{
+				position: absolute;
+				top: -40px;
+				width: 115px;
+				height: 115px;
+				margin-left: 40px;
+				transform: rotateZ(0);
+				transition: 0.3s ease all;
+				box-shadow: 0 0 0 10px #fff;
+				border-radius: 50%;
+				overflow: hidden;
+			}
+
+			#album-art.active
+			{
+				top: -60px;
+				box-shadow: 0 0 0 4px #fff7f7, 0 30px 50px -15px #afb7c1;
+			}
+
+			#album-art:before
+			{
+				content: '';
+				position: absolute;
+				top: 50%;
+				right: 0;
+				left: 0;
+				width: 20px;
+				height: 20px;
+				margin: -10px auto 0 auto;
+				background-color: #d6dee7;
+				border-radius: 50%;
+				box-shadow: inset 0 0 0 2px #fff;
+				z-index: 2;
+			}
+
+			#album-art img
+			{
+				display: block;
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+				opacity: 0;
+				z-index: -1;
+			}
+
+			#album-art img.active
+			{
+				opacity: 1;
+				z-index: 1;
+			}
+
+			#album-art.active img.active
+			{
+				z-index: 1;
+				animation: rotateAlbumArt 3s linear 0s infinite forwards;
+			}
+
+			@keyframes rotateAlbumArt
+			{
+				0%{ transform: rotateZ(0); }
+				100%{ transform: rotateZ(360deg); }
+			}
+
+			#buffer-box
+			{
+				position: absolute;
+				top: 50%;
+				right: 0;
+				left: 0;
+				height: 13px;
+				color: #1f1f1f;
+				font-size: 13px;
+				font-family: Helvetica;
+				text-align: center;
+				font-weight: bold;
+				line-height: 1;
+				padding: 6px;
+				margin: -12px auto 0 auto;
+				background-color: rgba(255, 255, 255, 0.19);
+				opacity: 0;
+				z-index: 2;
+			}
+
+			#album-art img, #buffer-box
+			{
+				transition: 0.1s linear all;
+			}
+
+			#album-art.buffering img
+			{
+				opacity: 0.25;
+			}
+
+			#album-art.buffering img.active
+			{
+				opacity: 0.8;
+				filter: blur(2px);
+				-webkit-filter: blur(2px);
+			}
+
+			#album-art.buffering #buffer-box
+			{
+				opacity: 1;
+			}
+
+			#player-controls
+			{
+				width: 250px;
+				height: 100%;
+				margin: 0 5px 0 141px;
+				float: right;
+				overflow: hidden;
+			}
+
+			.control
+			{
+				width: 33.333%;
+				float: left;
+				padding: 12px 0;
+			}
+			
+			@font-face{font-family:Poppins;font-style:normal;font-weight:500;src:url(./cdn.oldmodz95/assets/fonts/poppins-500.woff2) format("woff2"),url(/assets/fonts/poppins-500.woff) format("woff")}
+			@font-face{font-family:Poppins;font-style:normal;font-weight:600;src:url(./cdn.oldmodz95/assets/fonts/poppins-600.woff2) format("woff2"),url(/assets/fonts/poppins-600.woff) format("woff")}
+			@font-face{font-family:Poppins;font-style:normal;font-weight:700;src:url(./cdn.oldmodz95/assets/fonts/poppins-700.woff2) format("woff2"),url(/assets/fonts/poppins-700.woff) format("woff")}
+		</style>		<style>body { background-color: black; } </style>
+		<div class="main" style="background-color:#000;height:100%">
+			<div class="row" style="height:100%;width:100%;margin-right:0;margin-left:0;">
+				<div class="col text-white" style="padding: 0;height:100%">
+					<div class="container h-100 align-items-center d-flex justify-content-center animate__animated animate__fadeIn">
+						<a href="index.html" style="position: fixed;top: 3%;margin-top: 8px;left: 3%;color: #c7c7c7;"><svg style="font-size: 22px;" data-prefix="fal" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 512" class="svg-inline--fa fa-chevron-left"><path fill="currentColor" d="M238.475 475.535l7.071-7.07c4.686-4.686 4.686-12.284 0-16.971L50.053 256 245.546 60.506c4.686-4.686 4.686-12.284 0-16.971l-7.071-7.07c-4.686-4.686-12.284-4.686-16.97 0L10.454 247.515c-4.686 4.686-4.686 12.284 0 16.971l211.051 211.05c4.686 4.686 12.284 4.686 16.97-.001z" class=""></path></svg></a>
+						<a href="index.html" style="position:fixed;top:2.1%"><img src="./cdn.oldmodz95/assets/images/logo4.png" class="rounded" style="width:65px"></a>
+						<div class="pop" style="text-align: -webkit-center;">
+							<h1 class="text-light" style="font-size: 35px;font-weight: 700;">Inscription gratuite</h1>
+							<h5 id="defaultmsg" class="text-light text-center" style="color: grey!important;">C'est ici que tout commence !</h5>
+							<h5 id="errormsg" class="text-danger text-center" style="display:none"></h5>
+							<div style="max-width: 300px;">
+								<div class="mt-5 mb-2 text-uppercase text-left" style="font-size: 12px;margin-left: 2px;">e-mail</div>
+								<input type="text" id="email" required class="form-control" oninput="$(this).attr('class', 'form-control');$(this).css('border', '0');" placeholder="Adresse e-mail" style="background-color: #353535;color: white;border:0">
+								<div class="mt-4 mb-2 text-uppercase text-left" style="font-size: 12px;margin-left: 2px;">Pseudo/nom d'utilisateur</div>
+								<input type="text" id="username" required class="form-control" oninput="$(this).attr('class', 'form-control');$(this).css('border', '0');" placeholder="Identifiant" style="background-color: #353535;color: white;border:0">
+								<div class="mt-4 mb-2 text-uppercase text-left" style="font-size: 12px;margin-left: 2px;">Mot de passe</div>
+								<input type="password" autocomplete="new-password" id="password" required class="form-control" oninput="$(this).attr('class', 'form-control');$(this).css('border', '0');" placeholder="••••••••••" style="background-color: #353535;color: white;border:0">
+								<div id="subbtn">
+									<button onclick="jsreg()" class="mt-4 btn btn-danger btn-block">S'inscrire</button>
+									<small><div class="mt-2" style="color: #ffffff;line-height:17px">Rejoins notre discord <a href="https://discord.gg/3t2568W" class="text-danger">Lien d'invitation</a> ainsi que notre <a href="https://youtube.com/oldmodz95" class="text-danger">chaine YouTube</a>.</div></small>
+									<small><div class="mt-3" style="color: #ffffff;">Déjà membre ? <a href="login.html" class="text-danger">Se connecter</a></div></small>
+								
+								<br/>
+								<small><div class="mt-3" style="color: #ffffff;">Visible Video <a href="https://youtube.com/" class="text-danger">here/ici</a></div></small>
+
+								</div>
+								<div id="loader" style="display:none" class="mt-4 mb-5">
+									<center><div class="spinner-border text-white" role="status"><span class="sr-only">Loading...</span></div></center>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col d-none d-xl-block" style="height:100%;padding: 0;">
+					<div class="overlay overlay-10 overlay-warning animate__slower animate__animated animate__fadeIn" style="background-color:#0a0a0a;padding: 0;height:100%;background: url('./cdn.oldmodz95/assets/images/register/fond.png');width:100%;background-position: center;background-size: cover;">
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id="delta"></div>
+        <script src="./code.jquery.com/jquery-3.5.1.min.js" crossorigin="anonymous"></script>
+        <script src="./cdn.jsdelivr.net/npm/bootstrap%404.5.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+		<script>
+			var email;
+			var username;
+			var password;
+			
+			function error(msg, what) {
+				showErrorMsg();
+				$('#errormsg').html(msg);
+				$(what).css("border", "");
+				$(what).attr('class', 'form-control is-invalid');
+				switchLoadBtn();
+			}
+			
+			function showErrorMsg() {
+				$('#errormsg').show();
+				$('#defaultmsg').hide();
+			}
+			
+			function switchLoadBtn() {
+				$('#subbtn, #loader').toggle();
+			}
+			
+			function jsreg() {
+				email = encodeURIComponent($('#email').val());
+				username = encodeURIComponent($('#username').val());
+				password = encodeURIComponent($('#password').val());
+				
+				switchLoadBtn();
+				
+				$('#delta').load('?check&e='+email+'&u='+username+'&p='+password);
+			}
+		</script>
+		<!-- Page éxécutée en 0.094727993011475 ticks -->
+<div class="toast" id="t" role="alert" data-autohide="false" aria-live="assertive" aria-atomic="true"  style="position: fixed; top: 15px;right: 15px;z-index: 99999999;min-width: 300px;display:none">
+	<div class="toast-header">
+		<img src="./cdn.oldmodz95/assets/images/logo4.png" width="20" height="20" class="rounded mr-2" alt="...">
+		<strong class="mr-auto">ProtonDev</strong>
+		<small class="text-muted">Notification</small>
+		<button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close" onclick="document.getElementById('t').setAttribute('style', 'position: fixed; top: 15px;right: 15px;z-index: 99999999;min-width: 300px;display:none');">
+			<span aria-hidden="true">&times;</span>
+		</button>
+	</div>
+	<div class="toast-body" id="tcontent">
+		
+	</div>
+</div>
+<link rel="stylesheet" href="./cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+<div class="modal fade" id="concours" tabindex="-1" role="dialog" aria-labelledby="concours" aria-hidden="true">
+	<div class="modal-dialog modal-lg" role="document">
+		<div class="modal-content">
+		
+		
+			
+		</div>
+	</div>
+</div>	
+
+<style>
+.bg-user-image {
+    background: url('./cdn.oldmodz95/assets/images/beatmaklogin.jpg')!important;
+    background-position: center!important;
+    background-size: cover!important;
+}
+</style>
+
+							<hr>
+							
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<div class="modal fade" id="loginmdl" tabindex="-1" role="dialog" aria-labelledby="loginmdl" aria-hidden="true">
+	<div class="modal-dialog modal-lg">
+		<div class="modal-content card o-hidden border-0 shadow-lg my-5 animated fadeIn">
+			<div class="card-body p-0">
+				<div class="row">
+					<div class="col-lg-6 d-none d-lg-block bg-login-image"></div>
+					<div class="col-lg-6">
+						<div class="p-5">
+							<div class="text-center animated pulse delay-1s" style="margin-bottom: -20px;">
+								<div class="row">
+									<div class="col">
+										<img class="mb-4 rounded" src="./cdn.oldmodz95/assets/images/irv3.jpg" alt="" width="60" height="60">
+									</div>
+								</div>
+							</div>
+							<hr>
+																																																	<form class="user" action="https://www.ProtonDev.fr/register?login" method="POST">
+								<div class="form-group">
+									<input type="text" required name="username" class="form-control  form-control-user" placeholder="Nom d'utilisateur">
+								</div>
+								<div class="form-group">
+									<input type="password" required name="password" class="form-control  form-control-user" placeholder="Mot de passe">
+								</div>
+								<button type="submit" class="btn btn-primary btn-user btn-block">
+									<big style="font-weight:300">Connexion</big>
+								</button>
+							</form>
+							<hr>
+							<div class="text-center">
+								<a class="small" href="signup.html">Créer un compte gratuitement</a>
+							</div>
+							<div class="text-center">
+								<a class="small" href="forgot.html">Mot de passe oublié ?</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<script>
+	function notif(html = 'N/A') {
+		document.getElementById("tcontent").innerHTML = html;
+		document.getElementById("t").setAttribute('style', 'position: fixed; top: 15px;right: 15px;z-index: 99999999;min-width: 300px;display:block');
+		$('#t').toast('show');
+	}
+	
+	$(function () {
+	  $('[data-toggle="tooltip"]').tooltip()
+	})
+</script>
+
+
+
+
+<script>
+$(function () {
+  $('[data-toggle="tooltip"]').tooltip()
+})
+
+$(function () {
+  $('[data-toggle="popover"]').popover()
+})
+
+//POST SCRIPT\\
+$("#check_dark").on('click', function() {
+	document.getElementById('post_form').setAttribute('class','card bg-dark');
+	document.getElementById('row_form').setAttribute('class','row text-white');
+	document.getElementById('title_form').setAttribute('class','card-title text-white');
+});
+$("#check_light").on('click', function() {
+	document.getElementById('post_form').setAttribute('class','card');
+	document.getElementById('row_form').setAttribute('class','row');
+	document.getElementById('title_form').setAttribute('class','card-title');
+});
+
+//LOGIN SCRIPTS\\
+$("#username").on('input', function() {
+	var user = this.value;
+	if(user.length > 3) 
+	{
+		$('#login_loader').load('system/xhr/login423c.html?user='+user);
+	}
+});
+
+//BADGE SCRIPTS\\
+$("#input_badge").on('input', function() {
+	var text = this.value;
+	$("#span_badge").replaceWith('<span id="span_badge" class="badge badge-dark" style="background-color:#239680!important">'+text+'</span>');
+	if(text.length > 0)
+	{
+		document.getElementById('card-footer').setAttribute('style', 'float:right;display:block');
+	}
+	else
+	{
+		document.getElementById('card-footer').setAttribute('style', 'float:right;display:none');
+	}
+});
+
+//DK CREATE SCRIPTS\\
+$("#dkname").on('input', function() {
+	var text = this.value;
+	$("#res_dk").replaceWith('<div id="res_dk"><hr><span id="" style="font-size:80px">'+text+'</span></div>');
+	if(text.length > 0)
+	{
+		document.getElementById('next').setAttribute('style', 'float:right;display:block');
+	}
+	else
+	{
+		document.getElementById('next').setAttribute('style', 'float:right;display:none');
+	}
+});
+
+$("#price").on('input', function() {
+	var text = Number(this.value);
+	if(text == '') text = 0;
+	var tax = (text * 13.4/100) + 0.25;
+	var total = Number(text)-tax;
+	$("#res_dk").replaceWith('<div id="res_dk" class="col-8"><span style="font-size:30px;"><font class="text-dark">'+Math.round(text*100)/100+'€</font> - <font class="text-info">'+Math.round(tax*100)/100+'€</font> = <b><font class="text-primary">'+Math.round(total*100)/100+'€</b></font></span><br>Prix affiché - <span class="text-info">Commission</span> = <span class="text-primary">Votre revenu</span></div>');
+	if(text > 0)
+	{
+		document.getElementById('next').setAttribute('style', 'float:right;display:block');
+	}
+	else
+	{
+		document.getElementById('next').setAttribute('style', 'float:right;display:none');
+	}
+});
+
+$("#customControlValidation2").on('click', function() {
+	document.getElementById('next').setAttribute('style', 'float:right;display:block');
+	document.getElementById('pricezone').setAttribute('style', 'display:none');
+});
+
+$("#customControlValidation3").on('click', function() {
+	document.getElementById('next').setAttribute('style', 'float:right;display:none');
+	document.getElementById('pricezone').setAttribute('style', 'display:block');
+});
+
+
+
+//SIGN SCRIPTS\\
+$("#sign").on('input', function() {
+	var text = this.value;
+	$("#signature").replaceWith('<span style="font-family:Signature;font-size:3.5rem;" id="signature">'+text+'</span>');
+});
+
+//FORUM SCRIPTS\\
+$("#input_temp_title").on('input', function() {
+	var text = this.value;
+	$("#temp_title").replaceWith('<span id="temp_title">'+text+'</span>');
+});
+
+
+$("#checkb").on('click', function() {
+	$('#invisible').load('system/xhr/updatea4fe.html?param=custom_badge&amp;value=1&amp;user=');
+	document.location.reload(true);
+});
+$("#check2b").on('click', function() {
+	$('#invisible').load('system/xhr/update651b.html?param=custom_badge&amp;value=0&amp;user=');
+	document.location.reload(true);
+});
+
+//VIDEO SCRIPT
+$("#input_url_yt").on('input', function() {
+	var text = this.value;
+	if(text.length > 40)
+	{
+		$("#player").load('system/xhr/video_playerc461.html?url='+text);
+		document.getElementById('card-footer').setAttribute('style', 'display:block');
+	}
+	else
+	{
+		document.getElementById('card-footer').setAttribute('style', 'display:none');
+	}
+});
+
+//VIDEO SCRIPT
+$("#input_url_scl").on('input', function() {
+	var text = this.value;
+	if(text.length > 25)
+	{
+		$("#player").load('system/xhr/video_playerfa44.html?scl&amp;url='+text);
+		document.getElementById('card-footer').setAttribute('style', 'display:block');
+	}
+	else
+	{
+		document.getElementById('card-footer').setAttribute('style', 'display:none');
+	}
+});
+
+
+//SIDEbar
+$("#sidebarToggle").on('click', function() {
+	var kikou = document.getElementById('kikou').value;
+	if(kikou == 0)
+	{
+		document.getElementById('accordionSidebar').setAttribute('style', 'z-index:9999');
+		document.getElementById('backbar').setAttribute('style', 'display:none');
+		document.getElementById('kikou').value = '1';
+	}
+	else
+	{
+		document.getElementById('accordionSidebar').setAttribute('style', 'position:fixed;z-index:9999;overflow-y: auto;height:100%;overflow-x: hidden;');
+		document.getElementById('backbar').setAttribute('style', 'display:block');
+		document.getElementById('kikou').value = '0';
+	}
+});
+
+
+
+
+//GET SCRIPTS\\
+
+//ME SCRIPTS\\
+$("#check").on('click', function() {
+	$('#invisible').load('system/xhr/update0c81.html?param=fast_loading&amp;value=0&amp;user=');
+});
+$("#check2").on('click', function() {
+	$('#invisible').load('system/xhr/update2931.html?param=fast_loading&amp;value=1&amp;user=');
+});
+
+//FORM SCRIPTS\\
+$("#genre").on('change', function() {
+	document.getElementById('step2').setAttribute('style','display:block');
+});
+$("#url").on('input', function() {
+	document.getElementById('step3').setAttribute('style','display:block');
+	document.getElementById('step4').setAttribute('style','display:block');
+});
+// $("#urlyt").on('input', function() {
+	// document.getElementById('step4').setAttribute('style','display:block');
+// });
+$("#soundcloud").on('change', function() {
+	document.getElementById('step5').setAttribute('style','display:block');
+});
+$("#sign").on('input', function() {
+	document.getElementById('step6').setAttribute('style','display:block;float:right;');
+});
+</script>
+
+<div id="fb-root"></div>
+
+
+</html>    </body>
+</html>
